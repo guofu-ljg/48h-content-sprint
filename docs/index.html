@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>48h Content Sprint — 4 drafts + calendar</title>
+  <meta name="description" content="48-hour content sprint: 4 publish-ready drafts + 7-day calendar. ¥199 / $49 flat. No calls. Pay after delivery on first 3 orders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4efe6;
+      --ink: #1a1612;
+      --muted: #5c5348;
+      --accent: #c43b2a;
+      --accent-dark: #9a2e21;
+      --rule: #d4c9b8;
+      --highlight: #fff8e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Fraunces", Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.82em; letter-spacing: 0.02em; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 3rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .masthead {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .price-tag {
+      text-align: right;
+      border: 2px solid var(--ink);
+      padding: 0.6rem 1rem;
+      background: var(--highlight);
+      transform: rotate(-1.5deg);
+    }
+
+    .price-tag .amount {
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+      display: block;
+      font-size: 0.55em;
+      margin-top: 0.35em;
+      font-weight: 400;
+    }
+
+    .lede {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 38ch;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.4rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 2px solid var(--ink);
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn-secondary:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-2px);
+    }
+
+    .specimen {
+      border: 2px solid var(--ink);
+      background: #fff;
+      padding: 1.5rem;
+      position: relative;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+
+    .specimen::before {
+      content: "SAMPLE";
+      position: absolute;
+      top: -0.65rem;
+      left: 1rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      letter-spacing: 0.12em;
+    }
+
+    .specimen h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .specimen p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .specimen .excerpt {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.88rem;
+      font-style: italic;
+    }
+
+    section { margin-bottom: 4rem; }
+
+    h2 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 700px) {
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      border: 1px solid var(--rule);
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.45);
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: var(--ink); }
+
+    .card .num {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .calendar-preview {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .cal-row {
+      display: grid;
+      grid-template-columns: 4rem 1fr auto;
+      gap: 0.75rem;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed var(--rule);
+      font-size: 0.88rem;
+    }
+
+    .cal-row .day {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .cal-row .fmt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .not-for {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .not-for { grid-template-columns: 1fr; }
+    }
+
+    .not-for h2 { color: rgba(244,239,230,0.5); border-color: rgba(244,239,230,0.2); }
+
+    .not-for ul {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .not-for li {
+      padding: 0.35rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .not-for li::before {
+      content: "×";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .order-box {
+      border: 3px solid var(--ink);
+      padding: 2rem;
+      text-align: center;
+      background: var(--highlight);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order-box::after {
+      content: "48H SLA";
+      position: absolute;
+      top: 1rem;
+      right: -2rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      padding: 0.3rem 2.5rem;
+      transform: rotate(35deg);
+      letter-spacing: 0.1em;
+    }
+
+    .order-box h2 {
+      font-size: 1.6rem;
+      text-transform: none;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      border: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .order-box .sub {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="masthead mono">PulsePress · Done-for-you output · Est. 2026</div>
+      <div class="price-tag mono">
+        <div class="amount">¥199</div>
+        <div>or $49 flat</div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div>
+        <h1>Four drafts.<br>Seven days.<br><em>Forty-eight hours.</em></h1>
+        <p class="lede">Stop staring at a blank doc. We deliver 4 publish-ready Markdown drafts plus a 7-day content calendar — built with agents, polished by a human in 15 minutes.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Order now →</a>
+          <a class="btn btn-secondary" href="https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63" target="_blank" rel="noopener">View samples</a>
+        </div>
+        <p class="mono" style="margin-top:1rem;color:var(--muted);font-size:0.72rem;">First 3 orders: pay after delivery · No discovery calls</p>
+      </div>
+
+      <aside class="specimen">
+        <h3>独立开发 AI 工具：90% 的人死在第 3 个功能</h3>
+        <p class="mono">Newsletter draft · AI tools / indie dev</p>
+        <p class="excerpt">"你上线第 2 周，用户说能不能加个导出 PDF？你加了。第 8 周，产品里有 11 个功能，没有一个是让人愿意付钱的。这不是执行力问题，是激活指标问题。"</p>
+      </aside>
+    </div>
+
+    <section>
+      <h2>What you get</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>7-day calendar</h3>
+          <p>Topics, angles, keywords, and recommended format — JSON + readable table.</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>4 Markdown drafts</h3>
+          <p>Newsletter, blog, Twitter thread, or 小红书 — your mix. 80% ready, you polish tone.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>One revision round</h3>
+          <p>Within 24h of delivery: title, paragraph, or tone tweak. No full rewrites.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Calendar preview (sample niche: indie AI tools)</h2>
+      <div class="calendar-preview" id="calendar"></div>
+    </section>
+
+    <section class="not-for">
+      <div>
+        <h2>Built for</h2>
+        <ul>
+          <li>Solo founders who need SEO content but hate writing</li>
+          <li>Newsletter authors stuck on weekly cadence</li>
+          <li>Micro-SaaS teams without a full-time writer</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Not for</h2>
+        <ul>
+          <li>Full brand strategy or ghostwritten books</li>
+          <li>Video scripts or podcast show notes</li>
+          <li>Native-level literary polish in any language</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="order-box">
+      <h2>¥199 / $49 — one price, no packages</h2>
+      <p class="sub">Fill a 5-minute brief. We confirm in 24h. Deliver in 48h.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Open order form</a>
+        <a class="btn btn-secondary" href="https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63" target="_blank">See demo delivery</a>
+      </div>
+      <p class="mono" style="margin-top:1.25rem;font-size:0.7rem;color:var(--muted);">PayPal $49 → guofu.ljg@gmail.com · Wise available · WeChat ¥199 on request</p>
+    </section>
+
+    <footer>
+      <span>48h Content Sprint · Auto Company</span>
+      <span><a href="https://github.com/MaxMiksa/Auto-Company/tree/main/projects/cash-now" style="color:inherit;">Source</a></span>
+    </footer>
+  </div>
+
+  <script>
+    const days = [
+      { day: "Day 1", title: "独立开发 AI 工具：90% 的人死在第 3 个功能", fmt: "newsletter" },
+      { day: "Day 2", title: "我用 3 个 Agent 一周产了 12 篇博客——成本不到 $2", fmt: "blog" },
+      { day: "Day 3", title: "为什么你的 landing page 有流量没注册", fmt: "thread" },
+      { day: "Day 4", title: "一人公司不要先招人，先招「系统」", fmt: "小红书" },
+    ];
+    const el = document.getElementById("calendar");
+    days.forEach((d, i) => {
+      const row = document.createElement("div");
+      row.className = "cal-row";
+      row.style.animationDelay = `${0.4 + i * 0.08}s`;
+      row.style.animation = "fadeUp 0.5s ease both";
+      row.innerHTML = `<span class="day">${d.day}</span><span>${d.title}</span><span class="fmt">${d.fmt}</span>`;
+      el.appendChild(row);
+    });
+  </script>
+</body>
+</html>
