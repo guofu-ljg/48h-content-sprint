@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pick your 7-day outline — 48h Content Sprint</title>
+  <meta name="description" content="Preview free 7-day content outlines for indie SaaS, dev tools, build in public, and newsletter growth. Flash $19 sprint — 4 full drafts in 48h." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4efe6;
+      --ink: #1a1612;
+      --muted: #5c5348;
+      --accent: #c43b2a;
+      --accent-dark: #9a2e21;
+      --rule: #d4c9b8;
+      --highlight: #fff8e8;
+      --card: rgba(255,255,255,0.55);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Fraunces", Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.82em; letter-spacing: 0.02em; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 2.5rem;
+    }
+
+    .masthead {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+  .back-link {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 0.4rem 0.75rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .back-link:hover { border-color: var(--ink); color: var(--ink); }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .lede {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 42ch;
+      margin-bottom: 2rem;
+    }
+
+    .niche-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .niche-grid { grid-template-columns: 1fr; }
+    }
+
+    .niche-btn {
+      text-align: left;
+      padding: 1rem 1.1rem;
+      border: 2px solid var(--rule);
+      background: var(--card);
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s, background 0.15s;
+      font-family: inherit;
+    }
+
+    .niche-btn:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .niche-btn.active {
+      border-color: var(--accent);
+      background: var(--highlight);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .niche-btn .label {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .niche-btn .sub {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .preview-panel {
+      border: 2px solid var(--ink);
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .preview-panel h2 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .preview-meta {
+      margin-bottom: 1.25rem;
+    }
+
+    .preview-meta .audience {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .cal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .cal-table th {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .cal-table td {
+      padding: 0.65rem 0.6rem;
+      border-bottom: 1px dashed var(--rule);
+      vertical-align: top;
+    }
+
+    .cal-table .day {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .cal-table .fmt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .cta-block {
+      border: 3px solid var(--ink);
+      background: var(--highlight);
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .cta-block p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.3rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 2px solid var(--ink);
+      transition: transform 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn-secondary:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-2px);
+    }
+
+    .gist-link {
+      display: block;
+      margin-top: 1rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+  .gist-link a { color: var(--accent); }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="masthead mono">PulsePress · Free outline picker</div>
+      </div>
+      <a class="back-link" href="index.html">← Landing</a>
+    </header>
+
+    <h1>Pick a niche.<br>See your week.</h1>
+    <p class="lede">Four real 7-day outlines we ship for free in 24h. Want the first 4 days as full drafts? Flash intro <strong>$19</strong> — pay after delivery.</p>
+
+    <div class="niche-grid" id="niche-grid"></div>
+
+    <div class="preview-panel" id="preview">
+      <h2>7-day calendar preview</h2>
+      <div class="preview-meta">
+        <div class="audience" id="audience"></div>
+      </div>
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Title</th>
+            <th>Format</th>
+          </tr>
+        </thead>
+        <tbody id="cal-body"></tbody>
+      </table>
+      <p class="gist-link mono" id="gist-link"></p>
+    </div>
+
+    <div class="cta-block">
+      <p id="cta-text">Custom niche? We reply with a tailored outline in 24h — no payment, no pitch if it's off.</p>
+      <div class="cta-row">
+        <a class="btn btn-secondary" id="btn-outline" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=free-outline.yml" target="_blank" rel="noopener">Free custom outline</a>
+        <a class="btn btn-primary" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Order $19 flash sprint</a>
+        <a class="btn btn-secondary" href="https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63" target="_blank" rel="noopener">Full delivery sample</a>
+      </div>
+    </div>
+
+    <footer>
+      <span>48h Content Sprint · Auto Company</span>
+      <span><a href="https://github.com/guofu-ljg/48h-content-sprint" style="color:inherit;">Source</a></span>
+    </footer>
+  </div>
+
+  <script>
+    const NICHES = [
+      {
+        id: "indie-saas",
+        label: "Indie SaaS bootstrapping",
+        sub: "Solo founders · Twitter / IH",
+        audience: "Audience: solo founders shipping micro-SaaS without a content team.",
+        gist: "https://gist.github.com/guofu-ljg/a9dc8424728dcd0c332e66d3281662e8",
+        days: [
+          { day: 1, fmt: "newsletter", title: "Why your MVP landing page fails (and the 3-line fix)" },
+          { day: 2, fmt: "blog", title: "The $0 distribution stack I used before my first $1k MRR" },
+          { day: 3, fmt: "thread", title: "7 pricing mistakes that kill indie SaaS before launch" },
+          { day: 4, fmt: "newsletter", title: "I shipped a feature nobody asked for — 15-min customer interview" },
+          { day: 5, fmt: "blog", title: "Churn isn't a product problem (usually)" },
+          { day: 6, fmt: "thread", title: "Build in public without burning out: weekly content batch" },
+          { day: 7, fmt: "newsletter", title: "From side project to ramen profitable: one metric daily" }
+        ]
+      },
+      {
+        id: "dev-tools",
+        label: "AI coding tools",
+        sub: "Dev-tool founders · Cursor users",
+        audience: "Audience: indie dev-tool founders and Cursor/Copilot power users.",
+        gist: "https://gist.github.com/guofu-ljg/06ef8eb11b6936ac9cd2eb26cbad00d5",
+        days: [
+          { day: 1, fmt: "newsletter", title: "The 3 prompts I use before every refactor (and the one I retired)" },
+          { day: 2, fmt: "blog", title: "Why your AI coding tool demo video loses developers in 8 seconds" },
+          { day: 3, fmt: "thread", title: "6 agent workflow mistakes that burn context windows" },
+          { day: 4, fmt: "newsletter", title: "I shipped an MCP integration in a weekend — boring architecture" },
+          { day: 5, fmt: "blog", title: "Docs that convert: the copy-paste-first pattern for dev products" },
+          { day: 6, fmt: "thread", title: "Build in public for dev tools without leaking your roadmap" },
+          { day: 7, fmt: "newsletter", title: "From side project to 500 GitHub stars: the content loop that worked" }
+        ]
+      },
+      {
+        id: "bip",
+        label: "Build in public",
+        sub: "Founder brand · PH makers",
+        audience: "Audience: indie hackers documenting the journey on Twitter/X and Product Hunt.",
+        gist: "https://gist.github.com/guofu-ljg/b23bd3c145da0ca4e753b6be7bd15d66",
+        days: [
+          { day: 1, fmt: "newsletter", title: "Week 1 of building in public: what I shared (and regret)" },
+          { day: 2, fmt: "blog", title: "The 3-post weekly cadence that grew my audience without burnout" },
+          { day: 3, fmt: "thread", title: "8 build-in-public posts that get replies (not just likes)" },
+          { day: 4, fmt: "newsletter", title: "I launched on PH with 40 followers — what moved signups" },
+          { day: 5, fmt: "blog", title: "How to share revenue without killing negotiating power" },
+          { day: 6, fmt: "thread", title: "My build log template — 5 lines every Sunday" },
+          { day: 7, fmt: "newsletter", title: "From lurker to known: 30-day comment strategy before first post" }
+        ]
+      },
+      {
+        id: "newsletter",
+        label: "Newsletter growth",
+        sub: "Substack · Beehiiv creators",
+        audience: "Audience: solo newsletter authors stuck on cadence or subscriber growth.",
+        gist: "https://gist.github.com/guofu-ljg/481cea1838ee3fa0e311a2562934c17f",
+        days: [
+          { day: 1, fmt: "newsletter", title: "The open-rate lie: why 40% opens still means zero growth" },
+          { day: 2, fmt: "blog", title: "I grew from 200 to 2,000 subscribers without paid ads" },
+          { day: 3, fmt: "thread", title: "5 subject lines that doubled my click-through (with templates)" },
+          { day: 4, fmt: "newsletter", title: "The one idea, three formats system I use every Sunday" },
+          { day: 5, fmt: "blog", title: "Why your welcome sequence is losing 30% of new subs" },
+          { day: 6, fmt: "thread", title: "Paid newsletter vs. free + upsell: what I learned at 500 subs" },
+          { day: 7, fmt: "newsletter", title: "The content debt trap: cleared 6 weeks of backlog in one sprint" }
+        ]
+      }
+    ];
+
+    let activeId = NICHES[0].id;
+
+    function renderNicheButtons() {
+      const grid = document.getElementById("niche-grid");
+      grid.innerHTML = "";
+      NICHES.forEach((n) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "niche-btn" + (n.id === activeId ? " active" : "");
+        btn.innerHTML = `<div class="label">${n.label}</div><div class="sub">${n.sub}</div>`;
+        btn.addEventListener("click", () => {
+          activeId = n.id;
+          renderNicheButtons();
+          renderPreview();
+        });
+        grid.appendChild(btn);
+      });
+    }
+
+    function renderPreview() {
+      const niche = NICHES.find((n) => n.id === activeId);
+      document.getElementById("audience").textContent = niche.audience;
+      const body = document.getElementById("cal-body");
+      body.innerHTML = niche.days.map((d) =>
+        `<tr><td class="day">Day ${d.day}</td><td>${d.title}</td><td class="fmt">${d.fmt}</td></tr>`
+      ).join("");
+      document.getElementById("gist-link").innerHTML =
+        `Full outline with angles + keywords: <a href="${niche.gist}" target="_blank" rel="noopener">open gist ↗</a>`;
+      const outlineUrl = new URL("https://github.com/guofu-ljg/48h-content-sprint/issues/new");
+      outlineUrl.searchParams.set("template", "free-outline.yml");
+      document.getElementById("btn-outline").href = outlineUrl.toString();
+      document.getElementById("cta-text").textContent =
+        `Want a custom outline for "${niche.label}"? We reply in 24h. Full sprint = 4 drafts for days 1–4 at $19 flash.`;
+      document.getElementById("preview").style.animation = "none";
+      document.getElementById("preview").offsetHeight;
+      document.getElementById("preview").style.animation = "fadeUp 0.4s ease both";
+    }
+
+    renderNicheButtons();
+    renderPreview();
+  </script>
+</body>
+</html>
