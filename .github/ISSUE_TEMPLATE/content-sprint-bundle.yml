@@ -1,0 +1,119 @@
+name: 2-Sprint Bundle Order
+description: Order 2 content sprints — 8 drafts + 2 calendars (flash ¥89 / $24.99)
+title: "[Bundle] 2-Sprint "
+labels: ["content-sprint", "bundle", "order"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 2-Sprint Bundle — 8 drafts + 2 calendars
+
+        **Flash bundle**: **¥89 / $24.99** (shares first-5 floor slots — then ¥398 / $98)  
+        **Timeline**: Sprint 1 in 48h from brief #1 confirm · Sprint 2 in 48h from brief #2 confirm  
+        **Intro orders**: Pay after delivery if you prefer — no payment link required upfront.
+
+        See samples: https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Sprint 1 brief
+
+  - type: input
+    id: niche1
+    attributes:
+      label: Sprint 1 — niche / domain
+      placeholder: B2B SaaS onboarding
+    validations:
+      required: true
+
+  - type: input
+    id: audience1
+    attributes:
+      label: Sprint 1 — target audience
+      placeholder: product managers at Series A startups
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: formats1
+    attributes:
+      label: Sprint 1 — draft formats (pick up to 4)
+      options:
+        - label: Newsletter (800–1200 words)
+        - label: Blog / SEO post (1000–1500 words)
+        - label: Twitter/X thread (8–12 tweets)
+        - label: 小红书 / short-form (600–900 words)
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Sprint 2 brief
+
+  - type: input
+    id: niche2
+    attributes:
+      label: Sprint 2 — niche / domain
+      description: Same niche for week 2, or a different one
+      placeholder: indie SaaS bootstrapping
+    validations:
+      required: true
+
+  - type: input
+    id: audience2
+    attributes:
+      label: Sprint 2 — target audience
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: formats2
+    attributes:
+      label: Sprint 2 — draft formats (pick up to 4)
+      options:
+        - label: Newsletter (800–1200 words)
+        - label: Blog / SEO post (1000–1500 words)
+        - label: Twitter/X thread (8–12 tweets)
+        - label: 小红书 / short-form (600–900 words)
+    validations:
+      required: true
+
+  - type: textarea
+    id: avoid
+    attributes:
+      label: Topics to avoid (both sprints, optional)
+      placeholder: competitor names, political topics, etc.
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Reference style links (optional)
+      description: 1–3 URLs whose tone you like
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact (email or handle)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: payment
+    attributes:
+      label: Payment preference
+      options:
+        - Pay after delivery (intro bundles OK)
+        - I already paid — will attach screenshot in comment
+        - Need payment link first
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **What you get**: 2× (7-day calendar JSON + 4 Markdown drafts + publish schedule + 1 revision round).
+
+        We'll confirm Sprint 1 brief within 24h and deliver within 48h. Sprint 2 starts after brief #2 confirmation.
