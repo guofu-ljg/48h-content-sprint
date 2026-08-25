@@ -1,5 +1,5 @@
 name: Content Sprint Order
-description: Order a 48h content sprint — 4 drafts + 7-day calendar (intro ¥99 / $29)
+description: Order a 48h content sprint — 4 drafts + 7-day calendar (flash ¥69 / $19)
 title: "[Content Sprint] "
 labels: ["content-sprint", "order"]
 body:
@@ -8,7 +8,7 @@ body:
       value: |
         ## 48h Content Sprint — 4 drafts + 7-day calendar
 
-        **Intro price**: **¥99 / $29** (first 5 orders — then ¥199 / $49)  
+        **Flash intro**: **¥69 / $19** (first 5 orders — then ¥199 / $49)  
         **Turnaround**: 48 hours from brief confirmation  
         **Intro orders**: Pay after delivery if you prefer — no payment link required upfront.
 
