@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Flash intro** | **¥69 / $19** (first 5 orders) |
+| **Flash intro** | **¥49 / $14.99** (first 5 orders — floor price) |
 | **Regular price** | ¥199 / $49 |
 | **Turnaround** | 48h from brief confirmation |
 | **Payment** | Pay after delivery OK on intro orders |
