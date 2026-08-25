@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pick your 7-day outline — 48h Content Sprint</title>
-  <meta name="description" content="Preview free 7-day content outlines for indie SaaS, dev tools, build in public, and newsletter growth. Floor $14.99 sprint — 4 full drafts in 48h." />
+  <meta name="description" content="Preview free 7-day content outlines for indie SaaS, dev tools, build in public, newsletter growth, and freelancer leads. Floor $14.99 sprint — 4 full drafts in 48h." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -97,12 +97,12 @@
 
     .niche-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0.75rem;
       margin-bottom: 2rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
       .niche-grid { grid-template-columns: 1fr; }
     }
 
@@ -418,6 +418,24 @@
           { day: 5, fmt: "blog", title: "Why your welcome sequence is losing 30% of new subs" },
           { day: 6, fmt: "thread", title: "Paid newsletter vs. free + upsell: what I learned at 500 subs" },
           { day: 7, fmt: "newsletter", title: "The content debt trap: cleared 6 weeks of backlog in one sprint" }
+        ]
+      },
+      {
+        id: "freelancer",
+        label: "Freelancer leads",
+        niche: "freelancer & indie consultant lead generation",
+        audienceShort: "solo consultants and fractional experts",
+        sub: "Consultants · indie agencies",
+        audience: "Audience: solo consultants and fractional experts who need inbound leads without cold outreach.",
+        gist: "https://gist.github.com/guofu-ljg/617f0a857867d67ec7dd4b2514f15910",
+        days: [
+          { day: 1, fmt: "newsletter", title: "The one client away trap — why referrals stall at 3 clients" },
+          { day: 2, fmt: "blog", title: "I replaced cold outreach with 2 content assets that book calls" },
+          { day: 3, fmt: "thread", title: "7 LinkedIn posts that got me DMs (not engagement bait)" },
+          { day: 4, fmt: "newsletter", title: "The proposal that closes 60% — structure from a $2M agency" },
+          { day: 5, fmt: "blog", title: "Why your portfolio page scares away the clients you want" },
+          { day: 6, fmt: "thread", title: "5 niche content angles that attract buyers (not peers)" },
+          { day: 7, fmt: "newsletter", title: "From $0 to $8k/mo solo: weekly rhythm without hiring" }
         ]
       }
     ];
