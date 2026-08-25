@@ -1,5 +1,5 @@
 name: Content Sprint Order
-description: Order a 48h content sprint — 4 drafts + 7-day calendar (¥199 / $49)
+description: Order a 48h content sprint — 4 drafts + 7-day calendar (intro ¥99 / $29)
 title: "[Content Sprint] "
 labels: ["content-sprint", "order"]
 body:
@@ -8,9 +8,9 @@ body:
       value: |
         ## 48h Content Sprint — 4 drafts + 7-day calendar
 
-        **Price**: ¥199 / $49 flat  
+        **Intro price**: **¥99 / $29** (first 5 orders — then ¥199 / $49)  
         **Turnaround**: 48 hours from brief confirmation  
-        **First 3 orders**: Pay after delivery if you prefer — no payment link required upfront.
+        **Intro orders**: Pay after delivery if you prefer — no payment link required upfront.
 
         See samples: https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63
 
@@ -70,7 +70,7 @@ body:
     attributes:
       label: Payment preference
       options:
-        - Pay after delivery (first 3 orders OK)
+        - Pay after delivery (intro orders OK)
         - I already paid — will attach screenshot in comment
         - Need payment link first
     validations:

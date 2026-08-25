@@ -1,0 +1,42 @@
+name: Free Outline Request
+description: Get a free 7-day content outline in your niche — no payment required
+title: "[Free Outline] "
+labels: ["inquiry", "free-outline"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Free 7-day content outline
+
+        Not ready to order? We'll send a **free outline** (topics + angles + format suggestions) for your niche within 24h.
+
+        No payment required. If you like the outline, order the full sprint at intro **¥99 / $29**.
+
+  - type: input
+    id: niche
+    attributes:
+      label: Your niche / domain
+      placeholder: B2B SaaS, indie dev, coaching, etc.
+    validations:
+      required: true
+
+  - type: input
+    id: audience
+    attributes:
+      label: Target audience
+      placeholder: Who reads your content?
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact (email or handle)
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else we should know? (optional)
+      placeholder: Current content channels, topics you've already covered, etc.

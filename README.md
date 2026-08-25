@@ -4,13 +4,18 @@
 
 | | |
 |---|---|
-| **Price** | ¥199 / $49 flat |
+| **Intro price** | **¥99 / $29** (first 5 orders) |
+| **Regular price** | ¥199 / $49 |
 | **Turnaround** | 48h from brief confirmation |
-| **First 3 orders** | Pay after delivery |
+| **Payment** | Pay after delivery OK on intro orders |
 
 ## Order now
 
 👉 **[Open order form](https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml)**
+
+## Free outline first?
+
+Not sure yet? **[Request a free 7-day outline](https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=free-outline.yml)** in your niche — no payment required.
 
 ## Sample delivery
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>48h Content Sprint — 4 drafts + calendar</title>
-  <meta name="description" content="48-hour content sprint: 4 publish-ready drafts + 7-day calendar. ¥199 / $49 flat. No calls. Pay after delivery on first 3 orders." />
+  <meta name="description" content="48-hour content sprint: 4 publish-ready drafts + 7-day calendar. Intro ¥99 / $29 (first 5 orders). No calls. Pay after delivery." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -367,6 +367,27 @@
       color: var(--muted);
     }
 
+    .trial-banner {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .trial-banner strong { font-weight: 500; }
+
+    .price-tag .was {
+      font-size: 0.85rem;
+      text-decoration: line-through;
+      opacity: 0.55;
+      margin-bottom: 0.15rem;
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
@@ -374,12 +395,16 @@
   </style>
 </head>
 <body>
+  <div class="trial-banner mono">
+    <strong>Intro offer — first 5 orders:</strong> ¥99 / $29 <span style="opacity:0.75;">(normally ¥199 / $49)</span>
+  </div>
   <div class="wrap">
     <header>
       <div class="masthead mono">PulsePress · Done-for-you output · Est. 2026</div>
       <div class="price-tag mono">
-        <div class="amount">¥199</div>
-        <div>or $49 flat</div>
+        <div class="was">¥199 / $49</div>
+        <div class="amount">¥99</div>
+        <div>or $29 intro</div>
       </div>
     </header>
 
@@ -391,7 +416,7 @@
           <a class="btn btn-primary" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Order now →</a>
           <a class="btn btn-secondary" href="https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63" target="_blank" rel="noopener">View samples</a>
         </div>
-        <p class="mono" style="margin-top:1rem;color:var(--muted);font-size:0.72rem;">First 3 orders: pay after delivery · No discovery calls</p>
+        <p class="mono" style="margin-top:1rem;color:var(--muted);font-size:0.72rem;">Intro ¥99/$29 · First 5 orders pay after delivery · No discovery calls</p>
       </div>
 
       <aside class="specimen">
@@ -447,18 +472,18 @@
     </section>
 
     <section class="order-box">
-      <h2>¥199 / $49 — one price, no packages</h2>
-      <p class="sub">Fill a 5-minute brief. We confirm in 24h. Deliver in 48h.</p>
+      <h2>¥99 / $29 intro — one price, no packages</h2>
+      <p class="sub">First 5 orders at intro rate (then ¥199/$49). Fill a 5-minute brief. We confirm in 24h. Deliver in 48h.</p>
       <div class="cta-row" style="justify-content:center;">
         <a class="btn btn-primary" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Open order form</a>
         <a class="btn btn-secondary" href="https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63" target="_blank">See demo delivery</a>
       </div>
-      <p class="mono" style="margin-top:1.25rem;font-size:0.7rem;color:var(--muted);">PayPal $49 → guofu.ljg@gmail.com · Wise available · WeChat ¥199 on request</p>
+      <p class="mono" style="margin-top:1.25rem;font-size:0.7rem;color:var(--muted);">PayPal $29 intro → guofu.ljg@gmail.com · Wise available · WeChat ¥99 on request</p>
     </section>
 
     <footer>
       <span>48h Content Sprint · Auto Company</span>
-      <span><a href="https://github.com/MaxMiksa/Auto-Company/tree/main/projects/cash-now" style="color:inherit;">Source</a></span>
+      <span><a href="https://github.com/guofu-ljg/48h-content-sprint" style="color:inherit;">Source</a></span>
     </footer>
   </div>
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Free outline (no payment)
+    url: https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=free-outline.yml
+    about: Get a free 7-day content outline in your niche within 24h
+  - name: View samples
+    url: https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63
+    about: See a full sample delivery before ordering
