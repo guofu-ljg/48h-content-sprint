@@ -324,7 +324,7 @@
       <p id="cta-text">Custom niche? We reply with a tailored outline in 24h — no payment, no pitch if it's off.</p>
       <div class="cta-row">
         <a class="btn btn-secondary" id="btn-outline" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=free-outline.yml" target="_blank" rel="noopener">Free custom outline</a>
-        <a class="btn btn-primary" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Order $19 flash sprint</a>
+        <a class="btn btn-primary" id="btn-order" href="https://github.com/guofu-ljg/48h-content-sprint/issues/new?template=content-sprint-order.yml" target="_blank" rel="noopener">Order $19 flash sprint</a>
         <a class="btn btn-secondary" href="https://gist.github.com/guofu-ljg/1809247fea3c189d3cbd3b5348422c63" target="_blank" rel="noopener">Full delivery sample</a>
       </div>
     </div>
@@ -336,10 +336,22 @@
   </div>
 
   <script>
+    const ORDER_BASE = "https://github.com/guofu-ljg/48h-content-sprint/issues/new";
+    const OUTLINE_BASE = "https://github.com/guofu-ljg/48h-content-sprint/issues/new";
+
+    function issueUrl(base, template, fields) {
+      const url = new URL(base);
+      url.searchParams.set("template", template);
+      Object.entries(fields).forEach(([key, val]) => url.searchParams.set(key, val));
+      return url.toString();
+    }
+
     const NICHES = [
       {
         id: "indie-saas",
         label: "Indie SaaS bootstrapping",
+        niche: "indie SaaS bootstrapping",
+        audienceShort: "solo founders on Twitter / indie hackers",
         sub: "Solo founders · Twitter / IH",
         audience: "Audience: solo founders shipping micro-SaaS without a content team.",
         gist: "https://gist.github.com/guofu-ljg/a9dc8424728dcd0c332e66d3281662e8",
@@ -356,6 +368,8 @@
       {
         id: "dev-tools",
         label: "AI coding tools",
+        niche: "AI coding tools & dev marketing",
+        audienceShort: "dev-tool founders and Cursor power users",
         sub: "Dev-tool founders · Cursor users",
         audience: "Audience: indie dev-tool founders and Cursor/Copilot power users.",
         gist: "https://gist.github.com/guofu-ljg/06ef8eb11b6936ac9cd2eb26cbad00d5",
@@ -372,6 +386,8 @@
       {
         id: "bip",
         label: "Build in public",
+        niche: "build in public founder brand",
+        audienceShort: "indie hackers on Twitter/X and Product Hunt",
         sub: "Founder brand · PH makers",
         audience: "Audience: indie hackers documenting the journey on Twitter/X and Product Hunt.",
         gist: "https://gist.github.com/guofu-ljg/b23bd3c145da0ca4e753b6be7bd15d66",
@@ -388,6 +404,8 @@
       {
         id: "newsletter",
         label: "Newsletter growth",
+        niche: "newsletter / creator growth",
+        audienceShort: "solo newsletter authors on Substack or Beehiiv",
         sub: "Substack · Beehiiv creators",
         audience: "Audience: solo newsletter authors stuck on cadence or subscriber growth.",
         gist: "https://gist.github.com/guofu-ljg/481cea1838ee3fa0e311a2562934c17f",
@@ -431,9 +449,14 @@
       ).join("");
       document.getElementById("gist-link").innerHTML =
         `Full outline with angles + keywords: <a href="${niche.gist}" target="_blank" rel="noopener">open gist ↗</a>`;
-      const outlineUrl = new URL("https://github.com/guofu-ljg/48h-content-sprint/issues/new");
-      outlineUrl.searchParams.set("template", "free-outline.yml");
-      document.getElementById("btn-outline").href = outlineUrl.toString();
+      document.getElementById("btn-outline").href = issueUrl(OUTLINE_BASE, "free-outline.yml", {
+        niche: niche.niche,
+        audience: niche.audienceShort
+      });
+      document.getElementById("btn-order").href = issueUrl(ORDER_BASE, "content-sprint-order.yml", {
+        niche: niche.niche,
+        audience: niche.audienceShort
+      });
       document.getElementById("cta-text").textContent =
         `Want a custom outline for "${niche.label}"? We reply in 24h. Full sprint = 4 drafts for days 1–4 at $19 flash.`;
       document.getElementById("preview").style.animation = "none";

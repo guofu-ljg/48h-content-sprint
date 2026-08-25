@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>48h Content Sprint — 4 drafts + calendar</title>
   <meta name="description" content="48-hour content sprint: 4 publish-ready drafts + 7-day calendar. Flash ¥69 / $19 (first 5 orders). No calls. Pay after delivery." />
+  <meta property="og:title" content="48h Content Sprint — 4 drafts + calendar in 48h" />
+  <meta property="og:description" content="Flash ¥69 / $19 (first 5 orders). 4 publish-ready drafts + 7-day calendar. Pay after delivery. Try the free outline picker." />
+  <meta property="og:url" content="https://guofu-ljg.github.io/48h-content-sprint/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="48h Content Sprint — 4 drafts in 48h" />
+  <meta name="twitter:description" content="Flash $19 intro · Free outline picker · Pay after delivery" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -381,6 +388,29 @@
 
     .trial-banner strong { font-weight: 500; }
 
+    .flash-slots {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: 0.5rem;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid rgba(26, 22, 18, 0.25);
+      background: rgba(255, 248, 232, 0.6);
+    }
+
+    .flash-slots .dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
     .price-tag .was {
       font-size: 0.85rem;
       text-decoration: line-through;
@@ -397,6 +427,7 @@
 <body>
   <div class="trial-banner mono">
     <strong>Flash intro — first 5 orders:</strong> ¥69 / $19 <span style="opacity:0.75;">(normally ¥199 / $49)</span>
+    <span class="flash-slots" id="flash-slots"><span class="dot"></span><span id="slots-text">5 slots open</span></span>
   </div>
   <div class="wrap">
     <header>
@@ -494,6 +525,12 @@
   </div>
 
   <script>
+    const FLASH_TOTAL = 5;
+    const FLASH_CLAIMED = 0;
+    const remaining = FLASH_TOTAL - FLASH_CLAIMED;
+    document.getElementById("slots-text").textContent =
+      remaining === 1 ? "1 slot left" : `${remaining} slots open`;
+
     const days = [
       { day: "Day 1", title: "独立开发 AI 工具：90% 的人死在第 3 个功能", fmt: "newsletter" },
       { day: "Day 2", title: "我用 3 个 Agent 一周产了 12 篇博客——成本不到 $2", fmt: "blog" },
